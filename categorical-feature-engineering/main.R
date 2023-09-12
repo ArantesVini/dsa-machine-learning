@@ -33,10 +33,12 @@ dataset_bank <- dataset_bank %>%
 
 View(dataset_bank)
 
+
 table(dataset_bank$technology_use)
 
 round(prop.table(table(dataset_bank$technology_use)), 2)
 
+# Creation of a dummy variable in default column
 dataset_bank <- dataset_bank %>%
   mutate(defaulted = ifelse(default == "yes", 1, 0))
 
