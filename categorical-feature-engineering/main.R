@@ -44,6 +44,7 @@ dataset_bank <- dataset_bank %>%
 
 View(dataset_bank)
 
+# Applying one-hot enconding in all categorical variables
 library(caret)
 ?dummyVars
 dmy <- dummyVars(" ~ .", data = dataset_bank)
@@ -67,7 +68,7 @@ dataset_bank %>%
   geom_bar(stat = "identity", position = "dodge") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
-
+# Unifying two variables and create the dummy
 dmy <- dummyVars(~ job:marital, data = dataset_bank)
 bank.cross <- predict(dmy, newdata = dataset_bank)
 View(bank.cross)
